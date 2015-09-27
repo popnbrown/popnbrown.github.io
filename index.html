@@ -17,11 +17,16 @@
                     <div class="title">
 	                    <h1>Sravan K Suryadevara</h1>
 	                    <h3>Front-End Ninjaneer</h3>
+	                    <h3>Chicago, IL</h3>
                 	</div>
                 </div>
             </header>
+            <nav>
+            	<div class="color2"><a class="about" href="#">About Me</a></div>
+            	<div class="color3"><a href="#work">My Work</a></div>
+            </nav>
             <section class="featured">
-                <div class="main-feature color1" data-work="about">
+                <div class="main-feature" data-work="about">
             		<div class="intro-area">
             			<h2><i>About Me!</i></h2>
 	            	</div>
@@ -39,36 +44,63 @@
 	                	<p>To learn more about some of my work click on the examples below!</p>
 	            	</div>
             	</div>
-            	<div class="main-feature hidden color2" data-work="first">
+            	<div class="main-feature hidden" data-work="first">
             		<div class="intro-area">
 	            		<h2><i>FIRST</i></h2>
 	            		<img src="http://www.usfirst.org/sites/all/themes/first_core/logo.png" alt="FIRST Logo">
 	            	</div>
 	            	<div class="info-area">
-	            		<p>At FIRST, I am responsible for all of FIRST's Drupal websites, which currently includes 7.</p>
+	            		<p>At FIRST, I am responsible for all of FIRST's Drupal websites, which currently includes 7 different sites. My main responsibility is the default site which is featured below. This site is currently being re-built to feature a better UI and responsiveness to different devices.</p>
+	            		<p>Technologies Used:
+	            			<ul>
+	            				<li>Drupal</li>
+	            				<li>Bootstrap</li>
+	            				<li>Underscore</li>
+	            				<li>HTML5 - Video</li>
+	            				<li>Modernizr</li>
+	            			</ul>
+	            		</p>
+
+                		<img src="FIRST.png" alt="US FIRST Site Preview">
 	            	</div>
             	</div>
-            	<div class="main-feature hidden color2" data-work="onenorth">
+            	<div class="main-feature hidden" data-work="onenorth">
             		<div class="intro-area">
 	            		<h2><i>One North</i></h2>
 	            		<img src="one_north_logo.jpeg" alt="One North Logo">
 	            	</div>
 	            	<div class="info-area">
-	            		<p>At One North, I assisted clients with supporting existing web solutions and also played a role in creating new web applications.</p>
+	            		<p>At One North, I assisted clients with supporting existing web solutions and also played a role in creating new web applications. I played a major role in building two websites, BakerBotts and BassBerry, which are featured below.</p>
+	            		<p>Technologies Used:
+	            			<ul>
+	            				<li>Sitecore</li>
+	            				<li>FoundationJS</li>
+	            				<li>Lucene</li>
+	            			</ul>
+	            		</p>
+                		<img src="bassberry.png" alt="BassBerry Site Preview">
+                		<img src="bakerbotts.png" alt="BakerBotts Site Preview">
 	            	</div>
             	</div>
-            	<div class="main-feature hidden color2" data-work="illinirobotics">
+            	<div class="main-feature hidden" data-work="illinirobotics">
             		<div class="intro-area">
 	            		<h2><i>Illini Robotics</i></h2>
 	            		<img src="illini_robotics_logo.jpg" alt="Illini Robotics Logo">
 	            	</div>
 	            	<div class="info-area">
 	            		<p>Illini Robotics is a non-profit in the Urbana-Champaign area that I am a part of. I created the initial website which included a custom blogging implementation written in PHP</p>
+	            		<p>Technologies Used:
+	            			<ul>
+	            				<li>PHP</li>
+	            				<li>Custom HTML/CSS/JS</li>
+	            			</ul>
+	            		</p>
+                		<img src="Illini_Robotics.png" alt="Illini Robotics Site Preview">
 	            	</div>
             	</div>
             </section>
-            <section class="work-container color2">
-            	<a name="work"><h2>Current & Previous Work</h2></a>
+            <section class="work-container">
+            	<a name="work"><h2>My Work</h2></a>
                 <div class="work-box">
                 	<div class="work flex1" data-work="first">
                 		<img src="FIRST.png" alt="US FIRST Site Preview">
@@ -92,14 +124,6 @@
                 </div>
             </section>
         </main>    
-        <section class="leftbar">
-            <div class="color flex1">
-            	<a href="#">About</a>
-            </div>
-            <div class="color flex2">
-            	<a href="#work">Work</a>
-            </div>     
-        </section>
     </body>
     <script>
     	$(document).ready(function() {
@@ -109,11 +133,14 @@
     				$(this).addClass('hidden');
     				$('.main-feature[data-work="' + workdata + '"]').fadeIn("slow", function() {
     					$(this).removeClass('hidden');
+    					$('html, body').animate({
+    						scrollTop: $("nav").offset().top
+    					}, 1000);
     				});
     			});
     		});
 
-    		$('.color.flex1').click(function() {
+    		$('a.about').click(function() {
     			$('.about.work').click();
     		});
 

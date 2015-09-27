@@ -12,7 +12,7 @@ h1 {
 
 h2 {
   font-weight: 400;
-  font-size:36px;
+  font-size:32px;
 }
 
 h3 {
@@ -21,28 +21,44 @@ h3 {
   font-size:24px;
   margin: 0;
 }
-
-/** Main Style **/
-main {
-  float:right;
-  width: 93%;
+section {  
+  margin-top:10px;
+  border-top:2px solid #DBDBDB;
 }
-
 /** Header Style **/
 header {
-  border-bottom:2px solid #DBDBDB;
   min-height:105px;
 }
 
 
 .my-picture {
   float:left;
-  height:100px;
+  height:150px;
   border-radius:100px;
 }
 
 .title {
   text-align:right;
+}
+
+/**Nav Style**/
+nav {
+  margin-top:15px;
+  display: flex;
+  flex-direction: row;
+}
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size:18px;
+}
+
+nav div:hover {
+  background-color:#8B8B8B;
+}
+
+nav div {
+  padding: 5px 10px;
 }
 
 /** Feature Area **/
@@ -64,7 +80,12 @@ header {
 .info-area {
   clear:both;
 }
+.info-area img {
+  max-width:100%;
+}
 
+
+/*Work Area*/
 .work-box { 
   display: flex;
   flex-direction: row;
@@ -75,6 +96,7 @@ div.work {
   margin-right: 57px;
   margin-top:15px;
   position:relative;
+  cursor:pointer;
 }
 
 .hidden {
@@ -104,28 +126,10 @@ div.work img {
     color: #fff;
 }
 
-/** Left Bar Area**/
-.leftbar {
-  float:left;
-  width: 5%;
-  margin-top:100px;
-  margin-right: 2%;
-  display:flex;
-  flex-direction:column;
-}
 
-.leftbar a {
-  color: #fff;
-  text-decoration:none;
-}
 
-div.color {
-  width:100%;
-  margin: 15px 0;
-  border-radius: 15px;
-  text-align: center;
-}
 
+/*Static Stuff*/
 .flex1 {
   order:1;
 }
@@ -139,34 +143,22 @@ div.color {
   order:4;
 }
 
-.color.flex1 {
-  background-color:#8B8B8B;
-}
-.color.flex2 {
-  background-color:#E87722;
-}
-.color.flex3 {
-  background-color:#002058;
-}
-.color.flex4 {
-  background-color:#747704;
-}
 
-
-.color2 { 
-  color:#8B8B8B
+.color1 { 
+  background-color:#8B8B8B
 }
 .color2 { 
-  color:#E87722
+  background-color:#E87722
 }
 .color3 { 
-  color:#002058;
+  background-color:#002058;
 }
 .color4 { 
-  color:#747704
+  background-color:#747704
 }
 
 
+/*Media Queries*/
 @media screen and (max-width:1200px) {
   body { 
     padding: 0 10%;
@@ -177,11 +169,17 @@ div.color {
   body { 
     padding: 0;
   }
-  .leftbar {
-    display:none;
+}
+
+@media screen and (max-width:436px) {
+  .my-picture {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  main {
-    width: 100%;
+  .title {
+    text-align: center;
   }
 }
