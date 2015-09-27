@@ -1,7 +1,7 @@
 body {
   padding: 0 15%;
   font-family: 'Lato', sans-serif;
-  color: #8B8B8B;
+  color: #8b8b8b;
 }
 
 h1 {
@@ -21,9 +21,10 @@ h3 {
   font-size:24px;
   margin: 0;
 }
+
 section {  
   margin-top:10px;
-  border-top:2px solid #DBDBDB;
+  border-top:2px solid #dbdbdb;
 }
 /** Header Style **/
 header {
@@ -54,7 +55,7 @@ nav a {
 }
 
 nav div:hover {
-  background-color:#8B8B8B;
+  background-color:#8b8b8b;
 }
 
 nav div {
@@ -92,7 +93,7 @@ nav div {
   flex-flow: row wrap;
 }
 
-div.work {
+.work {
   margin-right: 57px;
   margin-top:15px;
   position:relative;
@@ -103,11 +104,11 @@ div.work {
   display:none;
 }
 
-div.work:last-child {
+.work:last-child {
   margin-right: 0px;
 }
 
-div.work img { 
+.work img { 
   height: 150px;
   width: 250px;
 }
@@ -145,10 +146,10 @@ div.work img {
 
 
 .color1 { 
-  background-color:#8B8B8B
+  background-color:#8b8b8b
 }
 .color2 { 
-  background-color:#E87722
+  background-color:#e87722
 }
 .color3 { 
   background-color:#002058;

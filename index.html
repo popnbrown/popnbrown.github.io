@@ -33,14 +33,13 @@
 	            	<div class="info-area">
 	                	<p>I am currently a Drupal Developer for <a href="http://www.usfirst.org">FIRST</a>. In my spare time I also am a volunteer for <a href="http://ilfirst.org">FIRST in Illinois</a>. I also run a high-school FIRST program FIRST 5125, Hawks On The Horizon (<a href="http://twttier.com/first5125">We Tweet!</a>).</p>
 	                	<p>Cooking is also a ton of fun, I wish I was much better at it, but I certainly have my moments. My best dish is probably my Nachos, followed by my generic Chicken w/ Vegetables.</p>
-	                	<p>A list of my favorite TV shows/movies:
-	                		<ul>
-	                			<li>The Fresh Prince of Bel-Air</li>
-	                			<li>Game of Thrones</li>
-	                			<li>The Jungle Book</li>
-	                			<li>Rush Hour (and 2 and 3)</li>
-	                		</ul>
-	                	</p>
+	                	<p>A list of my favorite TV shows/movies:</p>
+                		<ul>
+                			<li>The Fresh Prince of Bel-Air</li>
+                			<li>Game of Thrones</li>
+                			<li>The Jungle Book</li>
+                			<li>Rush Hour (and 2 and 3)</li>
+                		</ul>
 	                	<p>To learn more about some of my work click on the examples below!</p>
 	            	</div>
             	</div>
@@ -51,16 +50,14 @@
 	            	</div>
 	            	<div class="info-area">
 	            		<p>At FIRST, I am responsible for all of FIRST's Drupal websites, which currently includes 7 different sites. My main responsibility is the default site which is featured below. This site is currently being re-built to feature a better UI and responsiveness to different devices.</p>
-	            		<p>Technologies Used:
-	            			<ul>
-	            				<li>Drupal</li>
-	            				<li>Bootstrap</li>
-	            				<li>Underscore</li>
-	            				<li>HTML5 - Video</li>
-	            				<li>Modernizr</li>
-	            			</ul>
-	            		</p>
-
+	            		<p>Technologies Used:</p>
+            			<ul>
+            				<li>Drupal</li>
+            				<li>Bootstrap</li>
+            				<li>Underscore</li>
+            				<li>HTML5 - Video</li>
+            				<li>Modernizr</li>
+            			</ul>
                 		<img src="FIRST.png" alt="US FIRST Site Preview">
 	            	</div>
             	</div>
@@ -71,13 +68,12 @@
 	            	</div>
 	            	<div class="info-area">
 	            		<p>At One North, I assisted clients with supporting existing web solutions and also played a role in creating new web applications. I played a major role in building two websites, BakerBotts and BassBerry, which are featured below.</p>
-	            		<p>Technologies Used:
-	            			<ul>
-	            				<li>Sitecore</li>
-	            				<li>FoundationJS</li>
-	            				<li>Lucene</li>
-	            			</ul>
-	            		</p>
+	            		<p>Technologies Used:</p>
+            			<ul>
+            				<li>Sitecore</li>
+            				<li>FoundationJS</li>
+            				<li>Lucene</li>
+            			</ul>
                 		<img src="bassberry.png" alt="BassBerry Site Preview">
                 		<img src="bakerbotts.png" alt="BakerBotts Site Preview">
 	            	</div>
@@ -89,18 +85,17 @@
 	            	</div>
 	            	<div class="info-area">
 	            		<p>Illini Robotics is a non-profit in the Urbana-Champaign area that I am a part of. I created the initial website which included a custom blogging implementation written in PHP</p>
-	            		<p>Technologies Used:
-	            			<ul>
-	            				<li>PHP</li>
-	            				<li>Custom HTML/CSS/JS</li>
-	            			</ul>
-	            		</p>
+	            		<p>Technologies Used:</p>
+            			<ul>
+            				<li>PHP</li>
+            				<li>Custom HTML/CSS/JS</li>
+            			</ul>
                 		<img src="Illini_Robotics.png" alt="Illini Robotics Site Preview">
 	            	</div>
             	</div>
             </section>
             <section class="work-container">
-            	<a name="work"><h2>My Work</h2></a>
+            	<a id="work"><h2>My Work</h2></a>
                 <div class="work-box">
                 	<div class="work flex1" data-work="first">
                 		<img src="FIRST.png" alt="US FIRST Site Preview">
@@ -123,39 +118,39 @@
                 	<div class="about work hidden" data-work="about"></div>
                 </div>
             </section>
-        </main>    
-    </body>
-    <script>
-    	$(document).ready(function() {
-    		$('.work').click(function() {
-    			var workdata = $(this).data('work');
-    			$('.main-feature').not('.hidden').fadeOut("slow", function() {
-    				$(this).addClass('hidden');
-    				$('.main-feature[data-work="' + workdata + '"]').fadeIn("slow", function() {
-    					$(this).removeClass('hidden');
-    					$('html, body').animate({
-    						scrollTop: $("nav").offset().top
-    					}, 1000);
-    				});
-    			});
-    		});
+        </main>  
+        <script>
+	    	$(document).ready(function() {
+	    		$('.work').click(function() {
+	    			var workdata = $(this).data('work');
+	    			$('.main-feature').not('.hidden').fadeOut("slow", function() {
+	    				$(this).addClass('hidden');
+	    				$('.main-feature[data-work="' + workdata + '"]').fadeIn("slow", function() {
+	    					$(this).removeClass('hidden');
+	    					$('html, body').animate({
+	    						scrollTop: $("nav").offset().top
+	    					}, 1000);
+	    				});
+	    			});
+	    		});
 
-    		$('a.about').click(function() {
-    			$('.about.work').click();
-    		});
+	    		$('a.about').click(function() {
+	    			$('.about.work').click();
+	    		});
 
-	        $('.work').hover(function() {
-    			var $overlay = $(this).find('.overlay');
-    			$overlay.fadeIn("fast", function() {
-					$(this).removeClass('hidden');
-				});
-    		}, function() {
-    			var $overlay = $(this).find('.overlay');
-    			$overlay.fadeOut("fast", function() {
-					$(this).addClass('hidden');
-				});
-    		});
-    		
-    	})
-    </script>
+		        $('.work').hover(function() {
+	    			var $overlay = $(this).find('.overlay');
+	    			$overlay.fadeIn("fast", function() {
+						$(this).removeClass('hidden');
+					});
+	    		}, function() {
+	    			var $overlay = $(this).find('.overlay');
+	    			$overlay.fadeOut("fast", function() {
+						$(this).addClass('hidden');
+					});
+	    		});
+	    		
+	    	})
+	    </script> 
+    </body>    
 </html>
