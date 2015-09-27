@@ -1,0 +1,187 @@
+body {
+  padding: 0 15%;
+  font-family: 'Lato', sans-serif;
+  color: #8B8B8B;
+}
+
+h1 {
+  font-weight: 400;
+  font-size:46px;
+  margin: 5px 0;
+}
+
+h2 {
+  font-weight: 400;
+  font-size:36px;
+}
+
+h3 {
+  font-weight: 400;
+  font-style: italic;
+  font-size:24px;
+  margin: 0;
+}
+
+/** Main Style **/
+main {
+  float:right;
+  width: 93%;
+}
+
+/** Header Style **/
+header {
+  border-bottom:2px solid #DBDBDB;
+  min-height:105px;
+}
+
+
+.my-picture {
+  float:left;
+  height:100px;
+  border-radius:100px;
+}
+
+.title {
+  text-align:right;
+}
+
+/** Feature Area **/
+.main-feature.hidden {
+  display:none;
+}
+
+.intro-area h2{
+  float: left;
+}
+
+.intro-area img{
+  margin-top:10px;
+  float:right;
+  max-width:50%;
+  max-height:100px;
+}
+
+.info-area {
+  clear:both;
+}
+
+.work-box { 
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+div.work {
+  margin-right: 57px;
+  margin-top:15px;
+  position:relative;
+}
+
+.hidden {
+  display:none;
+}
+
+div.work:last-child {
+  margin-right: 0px;
+}
+
+div.work img { 
+  height: 150px;
+  width: 250px;
+}
+
+.work .overlay {  
+    height: 17%;
+    width: 100%;
+    top: 0;
+    background-color: #2b2b2b;
+    position: absolute;
+    opacity: 0.6;
+    text-align: center;
+    padding:  25% 0;
+    font-size: 30px;
+    font-style: italic;
+    color: #fff;
+}
+
+/** Left Bar Area**/
+.leftbar {
+  float:left;
+  width: 5%;
+  margin-top:100px;
+  margin-right: 2%;
+  display:flex;
+  flex-direction:column;
+}
+
+.leftbar a {
+  color: #fff;
+  text-decoration:none;
+}
+
+div.color {
+  width:100%;
+  margin: 15px 0;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.flex1 {
+  order:1;
+}
+.flex2 {
+  order:2;
+}
+.flex3 {
+  order:3;
+}
+.flex4 {
+  order:4;
+}
+
+.color.flex1 {
+  background-color:#8B8B8B;
+}
+.color.flex2 {
+  background-color:#E87722;
+}
+.color.flex3 {
+  background-color:#002058;
+}
+.color.flex4 {
+  background-color:#747704;
+}
+
+
+.color2 { 
+  color:#8B8B8B
+}
+.color2 { 
+  color:#E87722
+}
+.color3 { 
+  color:#002058;
+}
+.color4 { 
+  color:#747704
+}
+
+
+@media screen and (max-width:1200px) {
+  body { 
+    padding: 0 10%;
+  }  
+}
+
+@media screen and (max-width:900px) {
+  body { 
+    padding: 0;
+  }
+  .leftbar {
+    display:none;
+  }
+
+  main {
+    width: 100%;
+  }
+}
