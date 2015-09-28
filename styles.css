@@ -88,7 +88,7 @@ nav div {
 }
 
 /*Work Area*/
-.work-box { 
+.work-box {
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
@@ -109,7 +109,7 @@ nav div {
   margin-right: 0px;
 }
 
-.work img { 
+.work img {
   height: 150px;
   width: 250px;
 }
@@ -159,7 +159,7 @@ nav div {
 @media screen and (max-width:1200px) {
   body {
     padding: 0 10%;
-  }  
+  }
 }
 
 @media screen and (max-width:900px) {
