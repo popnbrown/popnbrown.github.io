@@ -22,15 +22,15 @@ h3 {
   margin: 0;
 }
 
-section {  
+section {
   margin-top:10px;
   border-top:2px solid #dbdbdb;
 }
+
 /** Header Style **/
 header {
   min-height:105px;
 }
-
 
 .my-picture {
   float:left;
@@ -48,6 +48,7 @@ nav {
   display: flex;
   flex-direction: row;
 }
+
 nav a {
   text-decoration: none;
   color: #fff;
@@ -81,10 +82,10 @@ nav div {
 .info-area {
   clear:both;
 }
+
 .info-area img {
   max-width:100%;
 }
-
 
 /*Work Area*/
 .work-box { 
@@ -113,7 +114,7 @@ nav div {
   width: 250px;
 }
 
-.work .overlay {  
+.work .overlay {
     height: 17%;
     width: 100%;
     top: 0;
@@ -126,9 +127,6 @@ nav div {
     font-style: italic;
     color: #fff;
 }
-
-
-
 
 /*Static Stuff*/
 .flex1 {
@@ -144,30 +142,28 @@ nav div {
   order:4;
 }
 
-
-.color1 { 
+.color1 {
   background-color:#8b8b8b
 }
-.color2 { 
+.color2 {
   background-color:#e87722
 }
-.color3 { 
+.color3 {
   background-color:#002058;
 }
-.color4 { 
+.color4 {
   background-color:#747704
 }
 
-
 /*Media Queries*/
 @media screen and (max-width:1200px) {
-  body { 
+  body {
     padding: 0 10%;
   }  
 }
 
 @media screen and (max-width:900px) {
-  body { 
+  body {
     padding: 0;
   }
 }
