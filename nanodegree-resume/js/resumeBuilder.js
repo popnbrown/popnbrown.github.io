@@ -123,13 +123,13 @@ This is empty on purpose! Your code to build the resume will go here.
  			"title": "Illinois FIRST Maps",
  			"dates": "December 2013 - March 2014",
  			"description": "Created a listing of all Illinois FIRST teams in a map",
- 			"images": ["http://popnbrown.github.io/nanodegree-resume/ilfirstmaps1-300.png","http://popnbrown.github.io/nanodegree-resume/ilfirstmaps2-300.png"]
+ 			"images": ["http://popnbrown.github.io/nanodegree-resume/images/ilfirstmaps1-300.png","http://popnbrown.github.io/nanodegree-resume/images/ilfirstmaps2-300.png"]
  		},
  		{
  			"title": "The Blue Alliance",
  			"dates": "December 2013 - Present",
  			"description": "Help with bugs for the TBA web app",
- 			"images": ["http://popnbrown.github.io/nanodegree-resume/tba1-300.png"]
+ 			"images": ["http://popnbrown.github.io/nanodegree-resume/images/tba1-300.png"]
  		}
  	],
  	display: function(){
