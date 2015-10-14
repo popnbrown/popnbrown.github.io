@@ -41,8 +41,8 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 
-    //collision detection
-    if(this.x + COLUMN_WIDTH >= player.x && this.x <= player.x + COLUMN_WIDTH && player.y == this.y){
+    //collision detection - make bug left point smaller to give a better visual cue to player
+    if(this.x + COLUMN_WIDTH * 0.75 >= player.x && this.x <= player.x + COLUMN_WIDTH && player.y == this.y){
         player.reset();
     }
 
@@ -77,8 +77,11 @@ var Player = function() {
 
 //handle scoring here
 Player.prototype.update = function(dt) {
-    if(this.y >= INITIAL_ENEMY_Y[0] && this.y <= INITIAL_ENEMY_Y[2])
+    if(this.y >= INITIAL_ENEMY_Y[0] && this.y <= INITIAL_ENEMY_Y[2]) {
         this.score = this.score + this.scoreMultiplier * dt;
+    } else if (this.score > 0 && this.y > INITIAL_ENEMY_Y[2]) {
+        this.score = this.score - this.scoreMultiplier / 2 * dt;
+    }
     document.getElementById('score').innerHTML = Math.round(this.score).toString(); //display score
 }
 
