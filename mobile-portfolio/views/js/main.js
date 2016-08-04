@@ -399,34 +399,31 @@ var pizzaElementGenerator = function(i) {
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
-var pizzaSize = document.getElementById("#pizzaSize");
-var newsize = 1;
-var pizzaResizeWorker = new Worker("pizzaResize.js");
 
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
-  // Changes the value for the size of the pizza above the slider
-  function changeSliderLabel(size) {
-    switch(size) {
-      case "1":
-        pizzaSize.innerHTML = "Small";
-        newsize = 0.25;
-        return;
-      case "2":
-        pizzaSize.innerHTML = "Medium";
-        newsize = 0.3333;
-        return;
-      case "3":
-        pizzaSize.innerHTML = "Large";
-        newsize = 0.5;
-        return;
-      default:
-        console.log("bug in changeSliderLabel");
-    }
-  }
+  var pizzaSize = document.getElementById("#pizzaSize");
+  var newsize = 1;
+  var pizzaResizeWorker = new Worker("pizzaResize.js");
 
-  changeSliderLabel(size);
+  // Changes the value for the size of the pizza above the slider
+  switch(size) {
+    case "1":
+      pizzaSize.innerHTML = "Small";
+      newsize = 0.25;
+      return;
+    case "2":
+      pizzaSize.innerHTML = "Medium";
+      newsize = 0.3333;
+      return;
+    case "3":
+      pizzaSize.innerHTML = "Large";
+      newsize = 0.5;
+      return;
+    default:
+      console.log("bug in changeSliderLabel");
+  }
 
   pizzaResizeWorker.postMessage(newsize);
 
