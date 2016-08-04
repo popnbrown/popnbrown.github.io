@@ -18,4 +18,5 @@ onmessage = function(e){
 	}
 
 	postMessage("Worker Complete!");
+	close();
 }
