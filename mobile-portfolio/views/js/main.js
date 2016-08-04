@@ -409,18 +409,21 @@ var resizePizzas = function(size) {
 
   // Changes the value for the size of the pizza above the slider
   switch(size) {
-    case "1":
+    case "1": {}
       pizzaSize.innerHTML = "Small";
       newsize = 0.25;
       return;
-    case "2":
+    }
+    case "2": {
       pizzaSize.innerHTML = "Medium";
       newsize = 0.3333;
       return;
-    case "3":
+    }
+    case "3": {
       pizzaSize.innerHTML = "Large";
       newsize = 0.5;
       return;
+    }
     default:
       console.log("bug in changeSliderLabel");
   }
