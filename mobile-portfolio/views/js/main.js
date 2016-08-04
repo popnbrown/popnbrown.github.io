@@ -436,7 +436,7 @@ var resizePizzas = function(size) {
 
   //kick off worker for every pizza
   for (var i = 0; i < pizzaLength; i++) {
-    pizzaResizeWorker({'index': i, 'offsetWidth': pizzaElements[i].offsetWidth, 'newsize': newsize, 'windowWidth': windowWidth});
+    pizzaResizeWorker.postMessage({'index': i, 'offsetWidth': pizzaElements[i].offsetWidth, 'newsize': newsize, 'windowWidth': windowWidth});
   }
 
   // User Timing API is awesome
