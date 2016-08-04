@@ -424,11 +424,20 @@ var resizePizzas = function(size) {
       console.log("bug in changeSliderLabel");
   }
 
-  pizzaResizeWorker.postMessage(newsize);
+  var pizzaElements = document.getElementsByClassName("randomPizzaContainer");
+  var pizzaLength = pizzaElements.length;
+  var windowWidth = document.getElementByID("randomPizzas").offsetWidth;
 
+  //get newwidth from worker and manipulate the pizza then
   pizzaResizeWorker.onmessage = function(e) {
-    console.log(e.data);
+    pizzaElements[e.data.index].style.width = e.data.newwidth;
   }
+
+  //kick off worker for every pizza
+  for (var i = 0; i < pizzaLength.length; i++) {
+    pizzaResizeWorker.postMessage({'index': i, 'windowWidth': windowWidth, 'offsetWidth': pizzaElements[i].offsetWidth, 'newsize': newsize});
+  }
+
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");

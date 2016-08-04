@@ -1,22 +1,16 @@
-//This worker class will handle resizing all the pizza images
+//This worker class will handle size calculation of each pizza
 
 onmessage = function(e){
-	var newsize = e.data;
+	var newsize = e.data.newsize;
+	var windowWidth = e.data.windowWidth;
+	var offsetWidth = e.data.offsetWidth;
 
-	var dx, newwidth;
-	var pizzaElements = document.getElementsByClassName("randomPizzaContainer");
-	var pizzaLength = pizzaElements.length;
+	var dx, newwidth, oldsize
 
-    var windowwidth = document.getElementByID("randomPizzas").offsetWidth;
-	var oldsize, dx;
+	oldsize = elem.offsetWidth / windowwidth;
+	dx = (newsize - oldsize) * windowwidth;
+	newwidth = (offsetWidth + dx) + 'px';
 
-	for (var i = 0; i < pizzaLength; i++) {
-	  oldsize = elem.offsetWidth / windowwidth;
-	  dx = (newsize - oldsize) * windowwidth;
-	  newwidth = (pizzaElements[i].offsetWidth + dx) + 'px';
-	  pizzaElements[i].style.width = newwidth;
-	}
-
-	postMessage("Worker Complete!");
+	postMessage({'index': e.data.index, 'newwidth': newwidth});
 	close();
 }
