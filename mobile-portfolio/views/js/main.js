@@ -399,6 +399,10 @@ var pizzaElementGenerator = function(i) {
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+var pizzaSize = document.getElementById("#pizzaSize");
+var newsize = 1;
+var pizzaResizeWorker = new Worker("pizzaResize.js");
+
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
@@ -406,13 +410,16 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        pizzaSize.innerHTML = "Small";
+        newsize = 0.25;
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        pizzaSize.innerHTML = "Medium";
+        newsize = 0.3333;
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        pizzaSize.innerHTML = "Large";
+        newsize = 0.5;
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -421,43 +428,11 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-  // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
-    var oldwidth = elem.offsetWidth;
-    var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
-    var oldsize = oldwidth / windowwidth;
+  pizzaResizeWorker.postMessage(newsize);
 
-    // TODO: change to 3 sizes? no more xl?
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      switch(size) {
-        case "1":
-          return 0.25;
-        case "2":
-          return 0.3333;
-        case "3":
-          return 0.5;
-        default:
-          console.log("bug in sizeSwitcher");
-      }
-    }
-
-    var newsize = sizeSwitcher(size);
-    var dx = (newsize - oldsize) * windowwidth;
-
-    return dx;
+  pizzaResizeWorker.onmessage = function(e) {
+    console.log(e.data);
   }
-
-  // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-    }
-  }
-
-  changePizzaSizes(size);
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
@@ -469,8 +444,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -498,16 +473,18 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
+var items = document.getElementsByClassName('mover'); // get all pizzas
+var itemsLength = items.length;
+
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.getElementsByClassName('mover');
   var scrollH = (document.body.scrollTop / 1250);
   var phase;
-  for (var i = 0; i < items.length; i++) {
-    phase =  100 * Math.sin(scrollH + (i % 5));
-    items[i].style.transform = "translate(" + phase + "px)";
+  for (var i = 0; i < itemsLength; i++) {
+    phase =  100 * Math.sin(scrollH + (i % 5)); //calculate movement
+    items[i].style.transform = "translate(" + phase + "px)"; //translate pizza for movement amount
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -536,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    document.getElementById("movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
