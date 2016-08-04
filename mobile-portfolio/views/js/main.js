@@ -432,11 +432,13 @@ var resizePizzas = function(size) {
 
   //get newwidth from worker and manipulate the pizza then
   pizzaResizeWorker.onmessage = function(e) {
+   console.log("Set style for element #" + i);
    pizzaElements[e.data.index].style.width = e.data.newwidth;
   }
 
   //kick off worker for every pizza
   for (var i = 0; i < pizzaLength; i++) {
+    console.log("Create pizza Resize Worker for element #" + i);
     pizzaResizeWorker.postMessage({'index': i, 'offsetWidth': pizzaElements[i].offsetWidth, 'newsize': newsize, 'windowWidth': windowWidth});
   }
 

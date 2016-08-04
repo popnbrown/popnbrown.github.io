@@ -1,6 +1,6 @@
 //This worker class will handle size calculation of each pizza
 
-onmessage = function(e){
+this.onmessage = function(e){
 	console.log("Pizza Resize Worker for element #" + e.data.index);
 	var newsize = e.data.newsize;
 	var windowWidth = e.data.windowWidth;
@@ -8,7 +8,7 @@ onmessage = function(e){
 
 	var dx, newwidth, oldsize
 
-	oldsize = elem.offsetWidth / windowwidth;
+	oldsize = offsetWidth / windowwidth;
 	dx = (newsize - oldsize) * windowwidth;
 	newwidth = (offsetWidth + dx) + 'px';
 
