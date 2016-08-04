@@ -426,7 +426,7 @@ var resizePizzas = function(size) {
 
   var pizzaElements = document.getElementsByClassName("randomPizzaContainer");
   var pizzaLength = pizzaElements.length;
-  var windowWidth = document.getElementByID("randomPizzas").offsetWidth;
+  var windowWidth = document.getElementById("randomPizzas").offsetWidth;
 
   //get newwidth from worker and manipulate the pizza then
   pizzaResizeWorker.onmessage = function(e) {
