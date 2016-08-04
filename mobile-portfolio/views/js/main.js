@@ -430,14 +430,13 @@ var resizePizzas = function(size) {
 
   //get newwidth from worker and manipulate the pizza then
   pizzaResizeWorker.onmessage = function(e) {
-    pizzaElements[e.data.index].style.width = e.data.newwidth;
+   pizzaElements[e.data.index].style.width = e.data.newwidth;
   }
 
   //kick off worker for every pizza
-  for (var i = 0; i < pizzaLength.length; i++) {
-    pizzaResizeWorker.postMessage({'index': i, 'windowWidth': windowWidth, 'offsetWidth': pizzaElements[i].offsetWidth, 'newsize': newsize});
+  for (var i = 0; i < pizzaLength; i++) {
+    pizzaResizeWorker({'index': i, 'offsetWidth': pizzaElements[i].offsetWidth, 'newsize': newsize, 'windowWidth': windowWidth});
   }
-
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
@@ -479,7 +478,6 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 var items = document.getElementsByClassName('mover'); // get all pizzas
-var itemsLength = items.length;
 
 function updatePositions() {
   frame++;
@@ -487,7 +485,7 @@ function updatePositions() {
 
   var scrollH = (document.body.scrollTop / 1250);
   var phase;
-  for (var i = 0; i < itemsLength; i++) {
+  for (var i = 0; i < 32; i++) {
     phase =  100 * Math.sin(scrollH + (i % 5)); //calculate movement
     items[i].style.transform = "translate(" + phase + "px)"; //translate pizza for movement amount
   }

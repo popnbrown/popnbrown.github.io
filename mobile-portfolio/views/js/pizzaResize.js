@@ -12,5 +12,4 @@ onmessage = function(e){
 	newwidth = (offsetWidth + dx) + 'px';
 
 	postMessage({'index': e.data.index, 'newwidth': newwidth});
-	close();
 }
