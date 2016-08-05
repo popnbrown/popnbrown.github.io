@@ -1,0 +1,57 @@
+html, body {
+	height: 100%;
+}
+
+.list-wrapper {
+	background: #000;
+	height: 100%;
+	color: #fff;
+	padding: 0;
+}
+
+.map-wrapper, #map-wrapper {
+	height: 100%;
+	padding: 0;
+}
+
+.map-wrapper nav {
+	margin: 0;
+	border-radius: 0;
+	background: #000;
+}
+
+nav button {
+	margin: 5px;
+}
+
+.list-wrapper .list-group-item {
+	border: none;
+	cursor: pointer;
+}
+
+.list-wrapper .station-list .list-group-item {
+	border-bottom: 1px grey solid;
+	background: none;
+}
+
+.list-wrapper .station-list .list-group-item:first-child {
+	border-top: 1px grey solid;
+}
+
+.station-name {
+	font-size: 20px;
+	display:block;
+}
+
+.station.active {
+	background: grey;
+}
+
+.filter {
+	margin: 8px;
+}
+
+.filter input {
+	padding: 5px;
+	color: #000;
+}
