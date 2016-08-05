@@ -407,20 +407,20 @@ var pizzaResizeWorker;
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
-  pizzaResizeWorker = new Worker("pizzaResize.js")
+  // pizzaResizeWorker = new Worker("pizzaResize.js")
   // Changes the value for the size of the pizza above the slider
   switch(size) {
     case "1":
       pizzaSize.innerHTML = "Small";
-      newsize = 0.25;
+      newsize = 25;
       break;
     case "2":
       pizzaSize.innerHTML = "Medium";
-      newsize = 0.3333;
+      newsize = 33.33;
       break;
     case "3":
       pizzaSize.innerHTML = "Large";
-      newsize = 0.5;
+      newsize = 50;
       break;
     default:
       console.log("bug in changeSliderLabel");
@@ -428,18 +428,19 @@ var resizePizzas = function(size) {
 
   var pizzaElements = document.getElementsByClassName("randomPizzaContainer");
   var pizzaLength = pizzaElements.length;
-  var windowWidth = document.getElementById("randomPizzas").offsetWidth;
+  // var windowWidth = document.getElementById("randomPizzas").offsetWidth;
 
   //get newwidth from worker and manipulate the pizza then
-  pizzaResizeWorker.onmessage = function(e) {
-   console.log("Set style for element #" + i);
-   pizzaElements[e.data.index].style.width = e.data.newwidth;
-  }
+  // pizzaResizeWorker.onmessage = function(e) {
+  //  console.log("Set style for element #" + i);
+  //  pizzaElements[e.data.index].style.width = e.data.newwidth;
+  // }
 
   //kick off worker for every pizza
   for (var i = 0; i < pizzaLength; i++) {
-    console.log("Create pizza Resize Worker for element #" + i);
-    pizzaResizeWorker.postMessage({'index': i, 'offsetWidth': pizzaElements[i].offsetWidth, 'newsize': newsize, 'windowWidth': windowWidth});
+    pizzaElements[i].style.width = newsize + '%';
+    //console.log("Create pizza Resize Worker for element #" + i);
+    //pizzaResizeWorker.postMessage({'index': i, 'offsetWidth': pizzaElements[i].offsetWidth, 'newsize': newsize, 'windowWidth': windowWidth});
   }
 
   // User Timing API is awesome
@@ -488,8 +489,9 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var scrollH = (document.body.scrollTop / 1250);
+  var itemsLength = items.length;
   var phase;
-  for (var i = 0; i < 32; i++) {
+  for (var i = 0; i < itemsLength; i++) {
     phase =  100 * Math.sin(scrollH + (i % 5)); //calculate movement
     items[i].style.transform = "translate(" + phase + "px)"; //translate pizza for movement amount
   }
@@ -511,7 +513,9 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 32; i++) {
+  var maxPizzas = screen.availHeight/s * cols;
+
+  for (var i = 0; i < maxPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
